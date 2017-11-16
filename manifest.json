@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+
+  "name": "Save Messenger Links",
+  "description": "This extension allows the user to save links from their chats in Messenger.",
+  "version": "1.0",
+
+  "background": {
+    "scripts": [ "background.js" ],
+    "persistent": false
+  },
+
+  "permissions": [
+    "declarativeContent", "activeTab"
+  ],
+
+  "content_scripts": [
+      {
+          "matches": [ "https://www.messenger.com/*", "https://www.messenger.com/t/*" ],
+          "js": [ "content_scripts/jquery.min.js", "content_scripts/msg-parser.js", "content_scripts/main.js" ]
+      }
+  ],
+
+
+  "page_action": {
+    "default_icon": "popup/icon.png",
+    "default_popup": "popup/popup.html",
+    "default_title": "Save Messenger Links"
+  }
+
+}
