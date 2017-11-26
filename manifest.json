@@ -17,7 +17,7 @@
   "content_scripts": [
       {
           "matches": [ "https://www.messenger.com/*", "https://www.messenger.com/t/*" ],
-          "js": [ "content_scripts/jquery.min.js", "content_scripts/msg-parser.js", "content_scripts/main.js" ]
+          "js": [ "content_scripts/jquery.min.js", "content_scripts/main.js" ]
       }
   ],
 
