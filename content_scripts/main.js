@@ -18,7 +18,14 @@ $(document).on('click', function(e) {
 			msgs.each(function(idx, el) {
 				var text = $(el).text();
 				if (isURL(text)) {
-					$.get('https://localhost:3000/', JSON.stringify({msg: text}));
+					chrome.runtime.sendMessage({
+						method: 'POST',
+					    action: 'xhttp',
+					    url: 'http://localhost:3000/msg',
+					    data: text
+					}, function (responseText) {
+						console.log(responseText);
+					});
 				}
 			});
 		}

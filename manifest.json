@@ -11,7 +11,7 @@
   },
 
   "permissions": [
-    "declarativeContent", "activeTab"
+    "declarativeContent", "activeTab", "http://*/*", "https://*/*"
   ],
 
   "content_scripts": [
