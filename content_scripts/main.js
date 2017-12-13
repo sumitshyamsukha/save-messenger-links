@@ -14,15 +14,25 @@ $(document).on('click', function(e) {
 		var $this = $(e.target);
 		if ($this.hasClass('_1htf') || $this.hasClass('_1ht6') || 
 			$this.hasClass('_1qt5') || $this.hasClass('_1qt4')) {
-			var msgs = $('._3oh-');
+
+			// Message classes from the other person: _3oh-, _58nk
+			var msgs = $.unique($('._3oh-._58nk'));
+			var name = $(location).attr('href');
+
 			msgs.each(function(idx, el) {
+				
 				var text = $(el).text();
+				var data = {
+					name: name,
+					text: text
+				};
+
 				if (isURL(text)) {
 					chrome.runtime.sendMessage({
 						method: 'POST',
 					    action: 'xhttp',
 					    url: 'http://localhost:3000/msg',
-					    data: text
+					    data: JSON.stringify(data)
 					}, function (responseText) {
 						console.log(responseText);
 					});
@@ -31,17 +41,3 @@ $(document).on('click', function(e) {
 		}
 	}, 2000);
 });
-
-setTimeout(function () {
-	var target = $('._4_j4').get(0);
-
-	var observer = new MutationObserver(function(mutations) {
-	  mutations.forEach(function(mutation) {
-	    
-	  });    
-	});
-
-	var config = { attributes: true, childList: true, characterData: true, subtree: true };
-
-	observer.observe(target, config);
-}, 5000);
