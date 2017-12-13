@@ -18,7 +18,11 @@
   "homepage": "https://github.com/sumitshyamsukha/save-messenger-links#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
     "express": "^4.16.2",
-    "get-urls": "^7.2.0"
+    "get-urls": "^7.2.0",
+    "mongodb": "^2.2.33",
+    "mongoose": "^4.13.6",
+    "underscore": "^1.8.3"
   }
 }
